@@ -12,8 +12,10 @@ export async function webVitals ({ route, options, sendToAnalytics }) {
   // }
 
   try {
-    const { onCLS, onFID, onLCP, onTTFB, onFCP, onINP } = await import('web-vitals/attribution').then((r: any) => r.default || r)
-    onFID(metric => sendToAnalytics(context, metric, options))
+    const { onCLS, onLCP, onTTFB, onFCP, onINP } = await import(
+      'web-vitals/attribution'
+    ).then((r: any) => r.default || r)
+
     onTTFB(metric => sendToAnalytics(context, metric, options))
     onLCP(metric => sendToAnalytics(context, metric, options))
     onCLS(metric => sendToAnalytics(context, metric, options))
