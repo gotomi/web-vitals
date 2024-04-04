@@ -1,4 +1,3 @@
-
 import { logError } from './utils'
 
 export async function webVitals ({ route, options, sendToAnalytics }) {
@@ -13,12 +12,13 @@ export async function webVitals ({ route, options, sendToAnalytics }) {
   // }
 
   try {
-    const { getCLS, getFID, getLCP, getTTFB, getFCP } = await import('web-vitals').then((r: any) => r.default || r)
-    getFID(metric => sendToAnalytics(context, metric, options))
-    getTTFB(metric => sendToAnalytics(context, metric, options))
-    getLCP(metric => sendToAnalytics(context, metric, options))
-    getCLS(metric => sendToAnalytics(context, metric, options))
-    getFCP(metric => sendToAnalytics(context, metric, options))
+    const { onCLS, onFID, onLCP, onTTFB, onFCP, onINP } = await import('web-vitals/attribution').then((r: any) => r.default || r)
+    onFID(metric => sendToAnalytics(context, metric, options))
+    onTTFB(metric => sendToAnalytics(context, metric, options))
+    onLCP(metric => sendToAnalytics(context, metric, options))
+    onCLS(metric => sendToAnalytics(context, metric, options))
+    onFCP(metric => sendToAnalytics(context, metric, options))
+    onINP(metric => sendToAnalytics(context, metric, options))
   } catch (err) {
     logError(err)
   }

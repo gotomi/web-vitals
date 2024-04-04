@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/web-vitals",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Web Vitals for Nuxt.js",
   "keywords": [
     "nuxt",
@@ -13,7 +13,8 @@
     "fcp",
     "fid",
     "lcp",
-    "ttfb"
+    "ttfb",
+    "inp"
   ],
   "repository": "nuxt-modules/web-vitals",
   "license": "MIT",
@@ -40,7 +41,7 @@
     "defu": "^6.1.2",
     "pathe": "^1.1.0",
     "ufo": "^1.1.2",
-    "web-vitals": "^3.3.1"
+    "web-vitals": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.3.1",
